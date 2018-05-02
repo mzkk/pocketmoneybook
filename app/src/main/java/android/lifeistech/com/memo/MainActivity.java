@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Money money = (Money) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                intent.putExtra("update",money.updateDate);
                 startActivity(intent);
             }
         });
