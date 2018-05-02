@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Money money = (Money) parent.getItemAtPosition(position);
                 Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-                intent.putExtra("update",money.updateDate);
+                intent.putExtra("updateDate",money.updateDate);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void create(View view){
-        Intent intent = new Intent(this, CreateActivity.class);
+        Intent intent = new Intent(MainActivity.this,CreateActivity.class);
         startActivity(intent);
     }
 }

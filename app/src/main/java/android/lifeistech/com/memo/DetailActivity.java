@@ -30,7 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         final Money money = realm.where(Money.class).equalTo("updateDate",
                 getIntent().getStringExtra("updateDate")).findFirst();
 
-        titleText.setText(money.money);
+        titleText.setText(""+money.money);
         contentText.setText(money.content);
     }
 
