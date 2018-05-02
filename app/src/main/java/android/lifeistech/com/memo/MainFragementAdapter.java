@@ -4,18 +4,15 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-/**
- * Created by mizuki on 2018/05/02.
- */
 
-public class MoneypagerAdapter extends FragmentPagerAdapter {
+public class MainFragementAdapter extends FragmentPagerAdapter {
 
-    public MoneypagerAdapter(android.support.v4.app.FragmentManager fm) {
+    public MainFragementAdapter(android.support.v4.app.FragmentManager fm) {
         super(fm);
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public android.support.v4.app.Fragment getItem(int position) {
         switch (position) {
             case 0:
                 return Mainfragment.newInstance();
