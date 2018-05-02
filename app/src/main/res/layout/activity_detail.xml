@@ -10,14 +10,14 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/money"
+            android:id="@+id/titileEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="金額" />
 
         <EditText
-            android:id="@+id/content"
+            android:id="@+id/contentEditText"
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:layout_gravity="top"

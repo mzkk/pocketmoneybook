@@ -30,7 +30,7 @@ public class MoneyAdapter extends ArrayAdapter<Money> {
         TextView titleText =(TextView)convertView.findViewById(R.id.titleText);
         TextView contentText = (TextView)convertView.findViewById(R.id.contentText);
 
-        titleText.setText(money.money);
+        titleText.setText(""+money.money);
         contentText.setText(money.content);
 
         return convertView;

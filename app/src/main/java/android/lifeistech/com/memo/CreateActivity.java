@@ -16,8 +16,8 @@ public class CreateActivity extends AppCompatActivity {
 
     public Realm realm;
 
-    public EditText titleEditText;
-    public EditText contentEditText;
+    public EditText titleText;
+    public EditText contentText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class CreateActivity extends AppCompatActivity {
 
         realm = Realm.getDefaultInstance();
 
-        titleEditText = (EditText) findViewById(R.id.titleEditText);
-        contentEditText = (EditText) findViewById(R.id.contentEditText);
+        titleText = (EditText) findViewById(R.id.titleEditText);
+        contentText = (EditText) findViewById(R.id.contentEditText);
     }
 
     public void save(final int num, final String updateDate, final String content) {
@@ -45,13 +45,13 @@ public class CreateActivity extends AppCompatActivity {
 
     public void create(View view) {
 
-        int money = Integer.parseInt(titleEditText.toString());
+        int money = Integer.parseInt(titleText.getText().toString());
 
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
         String updateDate = sdf.format(date);
 
-        String content = contentEditText.getText().toString();
+        String content = contentText.getText().toString();
 
         //check(money, updateDate, content);
 

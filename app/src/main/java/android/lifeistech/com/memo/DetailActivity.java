@@ -10,8 +10,8 @@ import io.realm.Realm;
 public class DetailActivity extends AppCompatActivity {
 
     public Realm realm;
-    public EditText titleEditText;
-    public EditText contentEditText;
+    public EditText titleText;
+    public EditText contentText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         realm = Realm.getDefaultInstance();
-        titleEditText = (EditText)findViewById(R.id.titleEditText);
-        contentEditText = (EditText)findViewById(R.id.contentEditText);
+        titleText = (EditText)findViewById(R.id.titleEditText);
+        contentText = (EditText)findViewById(R.id.contentEditText);
 
         showDate();
     }
@@ -30,8 +30,8 @@ public class DetailActivity extends AppCompatActivity {
         final Money money = realm.where(Money.class).equalTo("updateDate",
                 getIntent().getStringExtra("updateDate")).findFirst();
 
-        titleEditText.setText(money.money);
-        contentEditText.setText(money.content);
+        titleText.setText(money.money);
+        contentText.setText(money.content);
     }
 
     public void update(View view) {
@@ -43,8 +43,8 @@ public class DetailActivity extends AppCompatActivity {
 
             @Override
             public void execute(Realm realm) {
-                money.money = Integer.parseInt(titleEditText.toString());
-                money.content = contentEditText.getText().toString();
+                money.money = Integer.parseInt(titleText.getText().toString());
+                money.content = contentText.getText().toString();
             }
         });
 
