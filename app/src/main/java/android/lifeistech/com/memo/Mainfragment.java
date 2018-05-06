@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ public class Mainfragment extends android.support.v4.app.Fragment{
 
     public Realm realm;
     public ListView Listview;
+    public FloatingActionButton button;
 
 
     public static Mainfragment newInstance() {
@@ -50,6 +52,15 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         Listview = (ListView)view.findViewById(R.id.ListView);
+        button = (FloatingActionButton)view.findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(),CreateActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -74,14 +85,6 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         super.onResume();
         setMemoList();
     }
-
-   /*public void create (View v){
-        Intent intent = new Intent(this,CreateActivity.class);
-        startActivityForResult(intent,HOGE_QUEST_CODE);
-   }*/
-
-
-
 }
 
 

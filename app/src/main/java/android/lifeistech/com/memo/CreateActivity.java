@@ -35,25 +35,19 @@ public class CreateActivity extends AppCompatActivity {
         titleText = (EditText) findViewById(R.id.titleEditText);
         contentText = (EditText) findViewById(R.id.contentEditText);
 
-        /*Mainfragment fragment = new Mainfragment();
-        getFragmentManager().beginTransaction().add(android.R.id.content, Mainfragment, "Mainfragment").commit();
 
-        public void onClicked {
-            //何を書くみたい。
+        }
 
-
-        }*/
-    }
-
-    public void save(final int num, final String updateDate, final String content) {
+    public void save(final int num, final String time, final String content) {
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm bgRealm) {
                 Money money = realm.createObject(Money.class);
                 money.okane = num;
-                money.time = updateDate;
+                money.time = time;
                 money.memo = content;
+
             }
         });
     }
@@ -62,15 +56,33 @@ public class CreateActivity extends AppCompatActivity {
 
         int okane = Integer.parseInt(titleText.getText().toString());
 
+
+
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
-        String updateDate = sdf.format(date);
+        String time = sdf.format(date);
 
         String content = contentText.getText().toString();
 
         //check(money, updateDate, content);
 
-        save(okane, updateDate, content);
+        save(okane, time, content);
+        finish();
+    }
+
+    public void deru(View view) {
+
+        int okane = Integer.parseInt(titleText.getText().toString());
+
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
+        String time = sdf.format(date);
+
+        String content = contentText.getText().toString();
+
+        //check(money, updateDate, content);
+
+        save(okane, time, content);
         finish();
     }
 
