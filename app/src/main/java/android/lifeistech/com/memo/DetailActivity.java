@@ -1,5 +1,7 @@
 package android.lifeistech.com.memo;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +36,10 @@ public class DetailActivity extends AppCompatActivity {
         contentText.setText(money.memo);
     }
 
+    public void kesu(View view){
+
+    }
+
     public void update(View view) {
 
         final Money money = realm.where(Money.class).equalTo("time",
@@ -48,8 +54,18 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        int kousin = Integer.parseInt(titleText.getText().toString());
+
+        SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+        int zandaka = data.getInt("Zandaka",0 );
+        SharedPreferences.Editor editor = data.edit();
+        editor.putInt("Zandaka", kousin - zandaka);
+        editor.apply();
+
         finish();
     }
+
+
 
     @Override
     protected void onDestroy() {

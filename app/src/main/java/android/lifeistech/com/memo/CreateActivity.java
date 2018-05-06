@@ -1,6 +1,8 @@
 package android.lifeistech.com.memo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,7 +58,15 @@ public class CreateActivity extends AppCompatActivity {
 
         int okane = Integer.parseInt(titleText.getText().toString());
 
+        SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+        int zandaka = data.getInt("Zandaka",0 );
+        SharedPreferences.Editor editor = data.edit();
+        editor.putInt("Zandaka", zandaka + okane);
+        editor.apply();
 
+        int syunyu = data.getInt("Syunyu",0 );
+        editor.putInt("Syunyu", syunyu + okane);
+        editor.apply();
 
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
@@ -74,6 +84,16 @@ public class CreateActivity extends AppCompatActivity {
 
         int okane = Integer.parseInt(titleText.getText().toString());
 
+        SharedPreferences data = getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+        int zandaka = data.getInt("Zandaka",0 );
+        SharedPreferences.Editor editor = data.edit();
+        editor.putInt("Zandaka", zandaka - okane);
+        editor.apply();
+
+        int sisyutu = data.getInt("Sisyutu",0 );
+        editor.putInt("Sisyutu", sisyutu - okane);
+        editor.apply();
+
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
         String time = sdf.format(date);
@@ -86,6 +106,9 @@ public class CreateActivity extends AppCompatActivity {
         finish();
     }
 
+    public void kesu(View view){
+
+    }
 
     @Override
     protected void onDestroy() {

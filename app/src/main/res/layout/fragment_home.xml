@@ -5,35 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/ZankinText"
+    <TextView
+        android:id="@+id/Zankin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/Hairu"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp"
-        android:ems="10"
-        android:textSize="24sp"
+        android:layout_marginBottom="20dp"
+        android:textSize="30sp"
         tools:text="残金" />
 
-    <EditText
-        android:id="@+id/DeruText"
+    <TextView
+        android:id="@+id/Hairu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/HairuText"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:onClick="deru"
-        android:text="支出" />
+        android:layout_above="@+id/Deru"
+        android:layout_alignStart="@+id/Deru"
+        android:textSize="24sp"
+        tools:text="収入" />
 
-    <EditText
-        android:id="@+id/HairuText"
+    <TextView
+        android:id="@+id/Deru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ZankinText"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:ems="10"
-        android:onClick="hairu"
-        android:text="収入" />
+        android:layout_marginBottom="228dp"
+        android:textSize="24sp"
+        tools:text="支出" />
 </RelativeLayout>

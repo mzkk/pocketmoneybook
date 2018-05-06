@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -36,16 +37,6 @@ public class Mainfragment extends android.support.v4.app.Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         realm = Realm.getDefaultInstance();
-
-        /*Listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Money money = (Money) parent.getItemAtPosition(position);
-                Intent intent = new Intent(Mainfragment.this,CreateActivity.class);
-                intent.putExtra("time",money.time);
-                startActivity(intent);
-            }
-        });*/
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -58,6 +49,16 @@ public class Mainfragment extends android.support.v4.app.Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),CreateActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Money money = (Money) parent.getItemAtPosition(position);
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                intent.putExtra("time", money.time);
                 startActivity(intent);
             }
         });
@@ -78,6 +79,8 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         List<Money> item = realm.copyFromRealm(results);
         MoneyAdapter adapter = new MoneyAdapter(getContext(),R.layout.layout_item_memo,item);
         Listview.setAdapter(adapter);
+
+
     }
 
     @Override
