@@ -27,24 +27,24 @@ public class DetailActivity extends AppCompatActivity {
 
     private void showDate() {
 
-        final Money money = realm.where(Money.class).equalTo("updateDate",
-                getIntent().getStringExtra("updateDate")).findFirst();
+        final Money money = realm.where(Money.class).equalTo("time",
+                getIntent().getStringExtra("time")).findFirst();
 
-        titleText.setText(""+money.money);
-        contentText.setText(money.content);
+        titleText.setText(""+money.okane);
+        contentText.setText(money.memo);
     }
 
     public void update(View view) {
 
-        final Money money = realm.where(Money.class).equalTo("updateDate",
-                getIntent().getStringExtra("updateDate")).findFirst();
+        final Money money = realm.where(Money.class).equalTo("time",
+                getIntent().getStringExtra("time")).findFirst();
 
         realm.executeTransaction(new Realm.Transaction() {
 
             @Override
             public void execute(Realm realm) {
-                money.money = Integer.parseInt(titleText.getText().toString());
-                money.content = contentText.getText().toString();
+                money.okane = Integer.parseInt(titleText.getText().toString());
+                money.memo = contentText.getText().toString();
             }
         });
 

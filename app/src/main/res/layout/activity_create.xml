@@ -25,13 +25,29 @@
             android:gravity="top"
             android:hint="内容" />
 
-        <Button
-            android:id="@+id/button"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:onClick="create"
-            android:text="作成" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:onClick="hairu"
+                android:text="収入" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="deru"
+                android:text="支出" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

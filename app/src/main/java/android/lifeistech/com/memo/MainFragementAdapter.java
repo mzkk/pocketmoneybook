@@ -1,7 +1,5 @@
 package android.lifeistech.com.memo;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
@@ -15,7 +13,7 @@ public class MainFragementAdapter extends FragmentPagerAdapter {
     public android.support.v4.app.Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return Mainfragment.newInstance();
+                return Homefragment.newInstance();
             case 1:
                 return Mainfragment.newInstance();
         }

@@ -4,7 +4,7 @@ import io.realm.RealmObject;
 
 public class Money extends RealmObject{
 
-    public int money;
-    public String updateDate;
-    public String content;
+    public int okane;
+    public String time;
+    public String memo;
 }

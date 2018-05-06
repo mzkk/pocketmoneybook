@@ -1,9 +1,14 @@
 package android.lifeistech.com.memo;
 
+import android.content.Intent;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.text.SimpleDateFormat;
@@ -19,6 +24,7 @@ public class CreateActivity extends AppCompatActivity {
     public EditText titleText;
     public EditText contentText;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,15 @@ public class CreateActivity extends AppCompatActivity {
 
         titleText = (EditText) findViewById(R.id.titleEditText);
         contentText = (EditText) findViewById(R.id.contentEditText);
+
+        /*Mainfragment fragment = new Mainfragment();
+        getFragmentManager().beginTransaction().add(android.R.id.content, Mainfragment, "Mainfragment").commit();
+
+        public void onClicked {
+            //何を書くみたい。
+
+
+        }*/
     }
 
     public void save(final int num, final String updateDate, final String content) {
@@ -36,16 +51,16 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void execute(Realm bgRealm) {
                 Money money = realm.createObject(Money.class);
-                money.money = num;
-                money.updateDate = updateDate;
-                money.content = content;
+                money.okane = num;
+                money.time = updateDate;
+                money.memo = content;
             }
         });
     }
 
-    public void create(View view) {
+    public void hairu(View view) {
 
-        int money = Integer.parseInt(titleText.getText().toString());
+        int okane = Integer.parseInt(titleText.getText().toString());
 
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.JAPANESE);
@@ -55,9 +70,10 @@ public class CreateActivity extends AppCompatActivity {
 
         //check(money, updateDate, content);
 
-        save(money, updateDate, content);
+        save(okane, updateDate, content);
         finish();
     }
+
 
     @Override
     protected void onDestroy() {
@@ -66,13 +82,16 @@ public class CreateActivity extends AppCompatActivity {
         realm.close();
     }
 
-    private void check(String updateDate, String content) {
+    /*private void check(String updateDate, String content) {
         Money money = new Money();
-        money.money = 0;
-        money.updateDate = updateDate;
-        money.content = content;
+        money.okane = 0;
+        money.time = updateDate;
+        money.memo = content;
 
-        Log.d("Money", String.valueOf(money.money));
-        Log.d("Money", money.content);
+        Log.d("okane", String.valueOf(money.okane));
+        Log.d("okane", money.memo);
+    }*/
+
+
     }
-}
+

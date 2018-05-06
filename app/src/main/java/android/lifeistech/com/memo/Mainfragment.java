@@ -4,10 +4,12 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -33,13 +35,12 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         super.onCreate(savedInstanceState);
         realm = Realm.getDefaultInstance();
 
-
         /*Listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Money money = (Money) parent.getItemAtPosition(position);
-                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
-                intent.putExtra("updateDate",money.updateDate);
+                Intent intent = new Intent(Mainfragment.this,CreateActivity.class);
+                intent.putExtra("time",money.time);
                 startActivity(intent);
             }
         });*/
@@ -55,7 +56,7 @@ public class Mainfragment extends android.support.v4.app.Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home, null);
+        View view = inflater.inflate(R.layout.fragment_main, null);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.fragment_main_linearlayout);
 
         return view;
@@ -73,6 +74,12 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         super.onResume();
         setMemoList();
     }
+
+   /*public void create (View v){
+        Intent intent = new Intent(this,CreateActivity.class);
+        startActivityForResult(intent,HOGE_QUEST_CODE);
+   }*/
+
 
 
 }
