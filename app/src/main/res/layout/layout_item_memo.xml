@@ -18,6 +18,7 @@
         android:ellipsize="end"
         android:gravity="end"
         android:lines="1"
+        android:textAlignment="viewStart"
         android:textSize="16sp" />
 
 </RelativeLayout>

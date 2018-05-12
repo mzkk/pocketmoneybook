@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +27,7 @@ public class Mainfragment extends android.support.v4.app.Fragment{
 
     public Realm realm;
     public ListView Listview;
-    public FloatingActionButton button;
+    public ImageButton button;
 
 
     public static Mainfragment newInstance() {
@@ -43,7 +45,7 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         Listview = (ListView)view.findViewById(R.id.ListView);
-        button = (FloatingActionButton)view.findViewById(R.id.button);
+        button = (ImageButton)view.findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +81,6 @@ public class Mainfragment extends android.support.v4.app.Fragment{
         List<Money> item = realm.copyFromRealm(results);
         MoneyAdapter adapter = new MoneyAdapter(getContext(),R.layout.layout_item_memo,item);
         Listview.setAdapter(adapter);
-
-
     }
 
     @Override

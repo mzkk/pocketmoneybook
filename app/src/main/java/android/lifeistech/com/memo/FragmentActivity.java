@@ -22,14 +22,35 @@ public class FragmentActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-        toolbar = (Toolbar) findViewById(R.id.toolBar);
+        //toolbar = (Toolbar) findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
         FragmentManager manager = getSupportFragmentManager();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-        MainFragementAdapter adapter = new MainFragementAdapter(manager);
+        final MainFragementAdapter adapter = new MainFragementAdapter(manager);
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Fragment fragment = adapter.getItem(position);
+
+                if(fragment instanceof Homefragment){
+                    ((Homefragment)fragment).updateView();
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void setSupportActionBar(Toolbar toolbar) {

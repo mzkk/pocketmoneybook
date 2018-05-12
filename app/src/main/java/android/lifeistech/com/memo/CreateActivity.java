@@ -40,7 +40,7 @@ public class CreateActivity extends AppCompatActivity {
 
         }
 
-    public void save(final int num, final String time, final String content) {
+    public void save(final int num, final String time, final String content, final int type) {
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -49,7 +49,7 @@ public class CreateActivity extends AppCompatActivity {
                 money.okane = num;
                 money.time = time;
                 money.memo = content;
-
+                money.type=type;
             }
         });
     }
@@ -76,7 +76,10 @@ public class CreateActivity extends AppCompatActivity {
 
         //check(money, updateDate, content);
 
-        save(okane, time, content);
+        save(okane, time, content,Money.INCOME);
+
+
+
         finish();
     }
 
@@ -91,7 +94,7 @@ public class CreateActivity extends AppCompatActivity {
         editor.apply();
 
         int sisyutu = data.getInt("Sisyutu",0 );
-        editor.putInt("Sisyutu", sisyutu - okane);
+        editor.putInt("Sisyutu", sisyutu + okane);
         editor.apply();
 
         Date date = new Date();
@@ -102,13 +105,10 @@ public class CreateActivity extends AppCompatActivity {
 
         //check(money, updateDate, content);
 
-        save(okane, time, content);
+        save(okane, time, content,Money.OUT);
         finish();
     }
 
-    public void kesu(View view){
-
-    }
 
     @Override
     protected void onDestroy() {

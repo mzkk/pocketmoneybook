@@ -2,6 +2,7 @@ package android.lifeistech.com.memo;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -45,18 +46,28 @@ public class Homefragment extends android.support.v4.app.Fragment {
         HairuText = (TextView)view.findViewById(R.id.Hairu);
         DeruText = (TextView) view.findViewById(R.id.Deru);
 
-
-        SharedPreferences data = getContext().getSharedPreferences("DataSave", Context.MODE_PRIVATE);
-        int zandaka = data.getInt("Zandaka",0 );
-        ZankinText.setText(String.valueOf(zandaka));
-
-        int syunyu = data.getInt("Syunyu",0 );
-        HairuText.setText(String.valueOf(syunyu));
-
-        int sisyutu = data.getInt("sisyutu",0 );
-        DeruText.setText(String .valueOf(sisyutu));
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        updateView();
+    }
+
+    public void updateView(){
+        if(getContext() != null){
+            SharedPreferences data = getContext().getSharedPreferences("DataSave", Context.MODE_PRIVATE);
+            int zandaka = data.getInt("Zandaka",0 );
+            ZankinText.setText(String.valueOf("¥"+zandaka));
+
+            int syunyu = data.getInt("Syunyu",0 );
+            HairuText.setText(String.valueOf("¥ +"+syunyu));
+
+            int sisyutu = data.getInt("Sisyutu",0 );
+            DeruText.setText(String .valueOf("¥ -"+sisyutu));
+        }
     }
 
 
