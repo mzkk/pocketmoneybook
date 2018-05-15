@@ -6,11 +6,10 @@
     android:background="#E3F2FD">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/haikei" />
+        android:id="@+id/mizu"
+        android:layout_width="1000dp"
+        android:layout_height="750dp"
+        app:srcCompat="@drawable/hairei" />
 
     <ImageView
         android:id="@+id/imageView5"
