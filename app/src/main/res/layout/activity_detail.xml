@@ -6,26 +6,46 @@
     android:background="#E3F2FD">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/haikei" />
-
-    <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/memori" />
+        app:srcCompat="@drawable/iiii" />
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageView
+        android:id="@+id/mizu"
+        android:layout_width="1000dp"
+        android:layout_height="750dp"
+        android:layout_marginTop="350dp"
+        app:srcCompat="@drawable/hairei" />
+
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="120dp"
+        android:layout_marginRight="20dp"
+        android:background="#00ffffff"
+        android:onClick="update"
+        app:srcCompat="@drawable/kosin" />
+
+    <ImageButton
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="20dp"
+        android:background="#00ffffff"
+        android:onClick="kesu"
+        app:srcCompat="@drawable/sakujyo" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp">
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -45,31 +65,7 @@
             android:ems="10"
             android:hint="内容" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="update"
-                android:text="更新" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"
-                android:onClick="kesu"
-                android:text="削除" />
         </LinearLayout>
-
-    </LinearLayout>
 </RelativeLayout>
 
 </FrameLayout>

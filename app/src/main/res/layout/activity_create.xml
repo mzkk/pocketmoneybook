@@ -6,21 +6,41 @@
     android:background="#E3F2FD">
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/haikei" />
+        android:id="@+id/mizu"
+        android:layout_width="1000dp"
+        android:layout_height="750dp"
+        android:layout_marginTop="350dp"
+        app:srcCompat="@drawable/hairei" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/memori" />
+        android:scaleType="center"
+        app:srcCompat="@drawable/iiii" />
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="120dp"
+        android:layout_marginRight="20dp"
+        android:background="#00ffffff"
+        android:onClick="hairu"
+        app:srcCompat="@drawable/syunyu" />
+
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="20dp"
+        android:background="#00ffffff"
+        android:onClick="deru"
+        app:srcCompat="@drawable/sisyutu" />
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -47,30 +67,6 @@
             android:gravity="top"
             android:hint="内容" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:onClick="hairu"
-                android:text="収入" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/holo_blue_light"
-                android:onClick="deru"
-                android:text="支出" />
-
-        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

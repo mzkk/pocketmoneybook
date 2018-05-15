@@ -16,7 +16,6 @@
         android:textAlignment="center"
         android:textSize="30sp"
         tools:text="残金" />
-
     <TextView
         android:id="@+id/Deru"
         android:layout_width="100dp"
@@ -40,4 +39,5 @@
         android:textAlignment="center"
         android:textSize="24sp"
         tools:text="収入" />
+
 </RelativeLayout>

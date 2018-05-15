@@ -10,8 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +30,8 @@ public class CreateActivity extends AppCompatActivity {
 
     public EditText titleText;
     public EditText contentText;
-
+    public ImageView imageView;
+    public ImageButton imageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,8 @@ public class CreateActivity extends AppCompatActivity {
 
         titleText = (EditText) findViewById(R.id.titleEditText);
         contentText = (EditText) findViewById(R.id.contentEditText);
+        imageView = (ImageView) findViewById(R.id.mizu);
+
 
 
         }
@@ -55,6 +63,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void hairu(View view) {
+        imageButton = (ImageButton)findViewById(R.id.button);
 
         int okane = Integer.parseInt(titleText.getText().toString());
 
@@ -84,6 +93,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void deru(View view) {
+        imageButton = (ImageButton)findViewById(R.id.button2);
 
         int okane = Integer.parseInt(titleText.getText().toString());
 
@@ -109,12 +119,28 @@ public class CreateActivity extends AppCompatActivity {
         finish();
     }
 
-
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onStart() {
+        super.onStart();
+        run();
 
-        realm.close();
+    }
+
+    public void run() {
+        //startTranslateUp();
+        // TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)
+        final TranslateAnimation translateAnimation = new TranslateAnimation(
+                Animation.ABSOLUTE, 0.0f,
+                Animation.ABSOLUTE, -500.0f,
+                Animation.ABSOLUTE, 0.0f,
+                Animation.ABSOLUTE, 0.0f);
+
+        //1000が1秒
+        translateAnimation.setDuration(1000);
+        translateAnimation.setRepeatMode(Animation.REVERSE);
+        translateAnimation.setRepeatCount(Animation.INFINITE);
+        imageView.startAnimation(translateAnimation);
+
     }
 
     /*private void check(String updateDate, String content) {
@@ -126,6 +152,14 @@ public class CreateActivity extends AppCompatActivity {
         Log.d("okane", String.valueOf(money.okane));
         Log.d("okane", money.memo);
     }*/
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        realm.close();
+    }
 
 
     }

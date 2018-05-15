@@ -9,15 +9,14 @@
         android:id="@+id/mizu"
         android:layout_width="1000dp"
         android:layout_height="750dp"
+        android:layout_marginTop="100dp"
         app:srcCompat="@drawable/hairei" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/memori" />
+        app:srcCompat="@drawable/waku" />
 
     <LinearLayout
         android:id="@+id/fragment_main_linearlayout"

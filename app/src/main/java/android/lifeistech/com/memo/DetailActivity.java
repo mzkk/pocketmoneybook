@@ -6,7 +6,10 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -16,6 +19,7 @@ public class DetailActivity extends AppCompatActivity {
     public Realm realm;
     public EditText titleText;
     public EditText contentText;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
         realm = Realm.getDefaultInstance();
         titleText = (EditText)findViewById(R.id.titleEditText);
         contentText = (EditText)findViewById(R.id.contentEditText);
+        imageView = (ImageView)findViewById(R.id.mizu);
 
         showDate();
     }
@@ -103,7 +108,29 @@ public class DetailActivity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        run();
 
+    }
+
+    public void run() {
+        //startTranslateUp();
+        // TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)
+        final TranslateAnimation translateAnimation = new TranslateAnimation(
+                Animation.ABSOLUTE, 0.0f,
+                Animation.ABSOLUTE, -500.0f,
+                Animation.ABSOLUTE, 0.0f,
+                Animation.ABSOLUTE, 0.0f);
+
+        //1000が1秒
+        translateAnimation.setDuration(1000);
+        translateAnimation.setRepeatMode(Animation.REVERSE);
+        translateAnimation.setRepeatCount(Animation.INFINITE);
+        imageView.startAnimation(translateAnimation);
+
+    }
 
     @Override
     protected void onDestroy() {

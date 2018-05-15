@@ -20,7 +20,6 @@ import static java.security.AccessController.getContext;
 public class FragmentActivity extends AppCompatActivity {
 
     ImageView imageView;
-    public TranslateAnimation translateAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class FragmentActivity extends AppCompatActivity {
         // TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)
         final TranslateAnimation translateAnimation = new TranslateAnimation(
                 Animation.ABSOLUTE, 0.0f,
-                Animation.ABSOLUTE, -1000.0f,
+                Animation.ABSOLUTE, -500.0f,
                 Animation.ABSOLUTE, 0.0f,
                 Animation.ABSOLUTE, 0.0f);
 
