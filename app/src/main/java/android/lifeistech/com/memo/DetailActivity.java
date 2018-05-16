@@ -63,7 +63,7 @@ public class DetailActivity extends AppCompatActivity {
             editor.putInt("Zandaka", zandaka - num);
             editor.putInt("Syunyu",syunyu-num);
         }
-        editor.apply();
+        editor.commit();
 
 
         realm.beginTransaction();
@@ -95,7 +95,7 @@ public class DetailActivity extends AppCompatActivity {
             editor.putInt("Zandaka", zandaka - mae+ kousin);
             editor.putInt("Syunyu",syunyu-mae+ kousin);
         }
-        editor.apply();
+        editor.commit();
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
