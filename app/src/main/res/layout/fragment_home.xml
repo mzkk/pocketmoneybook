@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/git"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/Home">
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/kosin"
@@ -12,14 +12,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="right"
-        android:layout_marginRight="20dp"
+        android:layout_margin="20dp"
         android:background="#00ffffff"
         android:onClick="kousin"
         app:srcCompat="@drawable/kousin" />
 
     <TextView
         android:id="@+id/Zankin"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/Deru"
         android:layout_centerHorizontal="true"
@@ -27,7 +27,7 @@
         android:layout_marginBottom="200dp"
         android:background="#55ffffff"
         android:textAlignment="center"
-        android:textSize="36sp" />
+        android:textSize="50sp" />
 
     <TextView
         android:id="@+id/Deru"
